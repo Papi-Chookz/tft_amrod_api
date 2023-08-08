@@ -1,0 +1,88 @@
+openapi: 3.0.0
+info:
+  title: TFT Landing API
+  description: TFT Landing API for External Suppliers
+  version: 0.1.9
+
+servers:
+  - url: http://localhost:8000/api
+    description: local server
+  - url: http://producation.app/api
+    description: production server
+
+paths:
+  /get-token/{customer_id}/{integration_type_id}:
+    get:
+      summary: Get a valid token from Amrod.
+      tags:
+        - Amrod
+      parameters:
+      - in: path
+        name: customer_id
+        schema:
+          type: integer
+          minimum: 1
+        required: true
+        description: Numeric ID of the customer
+
+      - in: path
+        name: integration_type_id
+        schema:
+          type: integer
+          minimum: 1
+        required: true
+        description: Numeric ID of the integration type
+      # responses:
+      #   '200': 
+      #     description: A JSON array of user names
+      #     content:
+      #       application/json:
+      #         schema: 
+      #           type: array
+      #           items: 
+      #             type: string
+
+  /store-amrod-products-without-branding/{customer_id}/{integration_type_id}:
+    get:
+      summary: Store Amrod Products without Branding Model
+      tags:
+        - Amrod
+      parameters:
+      - in: path
+        name: customer_id
+        schema:
+          type: integer
+          minimum: 1
+        required: true
+        description: Numeric ID of the customer
+
+      - in: path
+        name: integration_type_id
+        schema:
+          type: integer
+          minimum: 1
+        required: true
+        description: Numeric ID of the integration type
+
+
+  /store-amrod-products-with-branding/{customer_id}/{integration_type_id}:
+    get:
+      summary: Store Amrod Products with Branding Model
+      tags:
+        - Amrod
+      parameters:
+      - in: path
+        name: customer_id
+        schema:
+          type: integer
+          minimum: 1
+        required: true
+        description: Numeric ID of the customer
+
+      - in: path
+        name: integration_type_id
+        schema:
+          type: integer
+          minimum: 1
+        required: true
+        description: Numeric ID of the integration type
