@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AmrodStockController;
 use App\Http\Controllers\BearerTokenController;
 use App\Http\Controllers\AmrodProductsWithoutBrandingController;
 
@@ -28,3 +29,6 @@ Route::controller(AmrodProductsWithoutBrandingController::class)->group(function
     Route::get('/store-amrod-products-without-branding/{customer_id}/{integration_type_id}', 'storeProductsWithoutBranding');
     Route::get('/store-amrod-products-with-branding/{customer_id}/{integration_type_id}', 'storeProductsWithBranding');
 });
+
+
+Route::get('/store-amrod-stock/{customer_id}/{integration_type_id}',[AmrodStockController::class, 'storeStock']);

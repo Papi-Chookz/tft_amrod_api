@@ -86,3 +86,26 @@ paths:
           minimum: 1
         required: true
         description: Numeric ID of the integration type
+
+
+  /store-amrod-stock/{customer_id}/{integration_type_id}:
+    get:
+      summary: Store Amrod Products Stock Quantities
+      tags:
+        - Amrod
+      parameters:
+      - in: path
+        name: customer_id
+        schema:
+          type: integer
+          minimum: 1
+        required: true
+        description: Numeric ID of the customer
+
+      - in: path
+        name: integration_type_id
+        schema:
+          type: integer
+          minimum: 1
+        required: true
+        description: Numeric ID of the integration type
